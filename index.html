@@ -1,157 +1,407 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kamila Jazowska | Senior HR Manager & Remote HR Outsourcing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary: #1e293b;
-            --accent: #0f766e;
-            --bg-light: #f8fafc;
-            --text-main: #334155;
-            --white: #ffffff;
+      :root {
+        --primary: #1e293b;
+        --accent: #0f766e;
+        --bg-light: #f8fafc;
+        --text-main: #334155;
+        --white: #ffffff;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        background-color: var(--bg-light);
+        color: var(--text-main);
+        line-height: 1.6;
+      }
+      header {
+        background: var(--primary);
+        color: var(--white);
+        padding: 2rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      header .logo {
+        font-weight: 700;
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+      }
+      header nav a {
+        color: var(--white);
+        text-decoration: none;
+        margin-left: 2rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      header nav a:hover {
+        color: var(--accent);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        color: var(--white);
+        padding: 6rem 5%;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .hero-content h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      .hero-content h1 span {
+        color: #14b8a6;
+      }
+      .hero-content p {
+        font-size: 1.15rem;
+        margin-bottom: 2rem;
+        color: #94a3b8;
+      }
+      .btn {
+        display: inline-block;
+        background-color: #14b8a6;
+        color: var(--white);
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s;
+        box-shadow: 0 4px 14px rgba(20, 184, 166, 0.4);
+      }
+      .btn:hover {
+        background-color: #0f766e;
+      }
+
+      .hero-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2.5rem;
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        text-align: center;
+      }
+      .stat-box h3 {
+        font-size: 2.2rem;
+        color: #14b8a6;
+        margin-bottom: 0.3rem;
+      }
+      .stat-box p {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      section {
+        padding: 5rem 5%;
+      }
+      section h2 {
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--primary);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      .service-card {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border-top: 4px solid #14b8a6;
+      }
+      .service-card h3 {
+        margin-bottom: 1rem;
+        color: var(--primary);
+        font-size: 1.3rem;
+      }
+      .service-card p {
+        font-size: 0.95rem;
+        color: #64748b;
+      }
+
+      .about {
+        background: var(--white);
+      }
+      .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .about-container p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+        color: #475569;
+      }
+
+      .contact {
+        background: var(--primary);
+        color: var(--white);
+        text-align: center;
+      }
+      .contact p {
+        color: #94a3b8;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+      }
+      .linkedin-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+        color: #14b8a6;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+      .linkedin-link:hover {
+        color: var(--white);
+      }
+      .linkedin-link:focus-visible {
+        outline: 2px solid #14b8a6;
+        outline-offset: 4px;
+      }
+      .linkedin-link svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        fill: currentColor;
+      }
+
+      footer {
+        background: #0f172a;
+        color: #64748b;
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1.25rem 5%;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
-        header { background: var(--primary); color: var(--white); padding: 2rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        header .logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 0.5px; }
-        header nav a { color: var(--white); text-decoration: none; margin-left: 2rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
-        header nav a:hover { color: var(--accent); }
-        
-        .hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: var(--white); padding: 6rem 5%; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: center; }
-        .hero-content h1 { font-size: 2.8rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero-content h1 span { color: #14b8a6; }
-        .hero-content p { font-size: 1.15rem; margin-bottom: 2rem; color: #94a3b8; }
-        .btn { display: inline-block; background-color: #14b8a6; color: var(--white); padding: 0.85rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; transition: background 0.3s; box-shadow: 0 4px 14px rgba(20, 184, 166, 0.4); }
-        .btn:hover { background-color: #0f766e; }
-        
-        .hero-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 2.5rem; border-radius: 12px; backdrop-filter: blur(10px); }
-        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; text-align: center; }
-        .stat-box h3 { font-size: 2.2rem; color: #14b8a6; margin-bottom: 0.3rem; }
-        .stat-box p { font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 1px; }
-
-        section { padding: 5rem 5%; }
-        section h2 { font-size: 2.2rem; text-align: center; margin-bottom: 3rem; color: var(--primary); }
-        
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .service-card { background: var(--white); padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 4px solid #14b8a6; }
-        .service-card h3 { margin-bottom: 1rem; color: var(--primary); font-size: 1.3rem; }
-        .service-card p { font-size: 0.95rem; color: #64748b; }
-
-        .about { background: var(--white); }
-        .about-container { max-width: 800px; margin: 0 auto; text-align: center; }
-        .about-container p { font-size: 1.1rem; margin-bottom: 1.5rem; color: #475569; }
-
-        .contact { background: var(--primary); color: var(--white); text-align: center; }
-        .contact p { color: #94a3b8; margin-bottom: 2rem; font-size: 1.1rem; }
-        
-        footer { background: #0f172a; color: #64748b; text-align: center; padding: 2rem; font-size: 0.9rem; }
-        
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 1rem; padding: 1.25rem 5%; }
-            header nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 1.25rem; }
-            header nav a { margin-left: 0; }
-            .hero { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 5%; text-align: center; }
-            .hero-content h1 { font-size: 2.2rem; }
-            section { padding: 3.5rem 5%; }
-            section h2 { font-size: 1.9rem; margin-bottom: 2rem; }
-            .hero-card, .service-card { padding: 1.75rem; }
-            .contact .btn { max-width: 100%; overflow-wrap: anywhere; }
+        header nav {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.75rem 1.25rem;
         }
-
-        @media (max-width: 480px) {
-            .hero-content h1 { font-size: 2rem; }
-            .hero-content p, .contact p { font-size: 1rem; }
-            .stats-grid { gap: 1rem 0.75rem; }
-            .stat-box h3 { font-size: 1.8rem; }
-            .stat-box p { font-size: 0.7rem; letter-spacing: 0; }
-            .services-grid { grid-template-columns: minmax(0, 1fr); }
-            .service-card { padding: 1.5rem; }
-            .contact div { overflow-wrap: anywhere; }
-            footer { padding: 1.5rem 5%; }
+        header nav a {
+          margin-left: 0;
         }
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 4rem 5%;
+          text-align: center;
+        }
+        .hero-content h1 {
+          font-size: 2.2rem;
+        }
+        section {
+          padding: 3.5rem 5%;
+        }
+        section h2 {
+          font-size: 1.9rem;
+          margin-bottom: 2rem;
+        }
+        .hero-card,
+        .service-card {
+          padding: 1.75rem;
+        }
+        .contact .btn {
+          max-width: 100%;
+          overflow-wrap: anywhere;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+        .hero-content p,
+        .contact p {
+          font-size: 1rem;
+        }
+        .stats-grid {
+          gap: 1rem 0.75rem;
+        }
+        .stat-box h3 {
+          font-size: 1.8rem;
+        }
+        .stat-box p {
+          font-size: 0.7rem;
+          letter-spacing: 0;
+        }
+        .services-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .service-card {
+          padding: 1.5rem;
+        }
+        .contact div {
+          overflow-wrap: anywhere;
+        }
+        footer {
+          padding: 1.5rem 5%;
+        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <header>
-        <div class="logo">KAMILA JAZOWSKA</div>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#expertise">Expertise</a>
-            <a href="#about">About</a>
-            <a href="#contact" style="color: #14b8a6;">Let's Talk</a>
-        </nav>
+      <div class="logo">KAMILA JAZOWSKA</div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#about">About</a>
+        <a href="#contact" style="color: #14b8a6">Let's Talk</a>
+      </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Strategic HR Outsourcing & <span>People Operations</span> for Remote Teams</h1>
-            <p>Scale your workforce effortlessly with 6+ years of senior HR expertise. End-to-end management, compliance, and lifecycle operations tailored for growing startups and remote companies.</p>
-            <a href="#contact" class="btn">Book a Discovery Call</a>
+      <div class="hero-content">
+        <h1>
+          Strategic HR Outsourcing & <span>People Operations</span> for Remote
+          Teams
+        </h1>
+        <p>
+          Scale your workforce effortlessly with 6+ years of senior HR
+          expertise. End-to-end management, compliance, and lifecycle operations
+          tailored for growing startups and remote companies.
+        </p>
+        <a href="#contact" class="btn">Book a Discovery Call</a>
+      </div>
+      <div class="hero-card">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <h3>200+</h3>
+            <p>Employees Supported</p>
+          </div>
+          <div class="stat-box">
+            <h3>~200</h3>
+            <p>Hires Managed</p>
+          </div>
+          <div class="stat-box">
+            <h3>100+</h3>
+            <p>Locations Covered</p>
+          </div>
+          <div class="stat-box">
+            <h3>6+</h3>
+            <p>Years Experience</p>
+          </div>
         </div>
-        <div class="hero-card">
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <h3>200+</h3>
-                    <p>Employees Supported</p>
-                </div>
-                <div class="stat-box">
-                    <h3>~200</h3>
-                    <p>Hires Managed</p>
-                </div>
-                <div class="stat-box">
-                    <h3>100+</h3>
-                    <p>Locations Covered</p>
-                </div>
-                <div class="stat-box">
-                    <h3>6+</h3>
-                    <p>Years Experience</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
     <section id="services">
-        <h2>Remote HR Outsourcing Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>End-to-End Recruitment</h3>
-                <p>Full-cycle talent acquisition across multiple locations and borders (Poland & EU), ensuring cultural fit and rapid onboarding.</p>
-            </div>
-            <div class="service-card">
-                <h3>Employee Lifecycle & Operations</h3>
-                <p>Seamless management of onboarding, offboarding, internal tracking via Google Sheets/HRnest, and day-to-day employee relations.</p>
-            </div>
-            <div class="service-card">
-                <h3>Employment Compliance & Legal</h3>
-                <p>Drafting workplace rules, remuneration regulations, and aligning internal procedures with EU pay requirements and whistleblower laws.</p>
-            </div>
+      <h2>Remote HR Outsourcing Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>End-to-End Recruitment</h3>
+          <p>
+            Full-cycle talent acquisition across multiple locations and borders
+            (Poland & EU), ensuring cultural fit and rapid onboarding.
+          </p>
         </div>
+        <div class="service-card">
+          <h3>Employee Lifecycle & Operations</h3>
+          <p>
+            Seamless management of onboarding, offboarding, internal tracking
+            via Google Sheets/HRnest, and day-to-day employee relations.
+          </p>
+        </div>
+        <div class="service-card">
+          <h3>Employment Compliance & Legal</h3>
+          <p>
+            Drafting workplace rules, remuneration regulations, and aligning
+            internal procedures with EU pay requirements and whistleblower laws.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="about" class="about">
-        <h2>Why Partner With Me?</h2>
-        <div class="about-container">
-            <p>As a Senior HR Manager with a proven track record in high-growth startup environments (such as SuperVista Poland), I bridge the gap between human empathy and operational efficiency.</p>
-            <p>Fluent in English and a native Polish speaker, I specialize in remote coordination, managing distributed teams, optimizing training paths, and representing companies during public authority inspections[cite: 2]. Let me handle your People Operations so you can focus entirely on scaling your core business.</p>
-        </div>
+      <h2>Why Partner With Me?</h2>
+      <div class="about-container">
+        <p>
+          As a Senior HR Manager with a proven track record in high-growth
+          startup environments (such as SuperVista Poland), I bridge the gap
+          between human empathy and operational efficiency.
+        </p>
+        <p>
+          Fluent in English and a native Polish speaker, I specialize in remote
+          coordination, managing distributed teams, optimizing training paths,
+          and representing companies during public authority inspections[cite:
+          2]. Let me handle your People Operations so you can focus entirely on
+          scaling your core business.
+        </p>
+      </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2>Ready to Scale Your Remote HR?</h2>
-        <p>Let's discuss how flexible HR Outsourcing can transform your operational efficiency.</p>
-        <a href="mailto:kamila.jazowska@gmail.com" class="btn">kamila.jazowska@gmail.com</a>
-        <div style="margin-top: 1.5rem; font-size: 0.95rem; color: #94a3b8;">
-            Phone: +48 884 976 098 | Available for Remote / Telework Worldwide
-        </div>
+      <h2>Ready to Scale Your Remote HR?</h2>
+      <p>
+        Let's discuss how flexible HR Outsourcing can transform your operational
+        efficiency.
+      </p>
+      <a href="mailto:kamila.jazowska@gmail.com" class="btn"
+        >kamila.jazowska@gmail.com</a
+      >
+      <div style="margin-top: 1.5rem; font-size: 0.95rem; color: #94a3b8">
+        Phone: +48 884 976 098 | Available for Remote / Telework Worldwide
+      </div>
+      <a
+        class="linkedin-link"
+        href="https://www.linkedin.com/in/kamila-jazowska-590b55252"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Visitar perfil de Kamila no LinkedIn"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path
+            d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0h.01Z"
+          />
+        </svg>
+        <span>LinkedIn</span>
+      </a>
     </section>
 
     <footer>
-        <p>&copy; 2026 Kamila Jazowska. All rights reserved. Senior HR Manager & People Operations.</p>
+      <p>
+        &copy; 2026 Kamila Jazowska. All rights reserved. Senior HR Manager &
+        People Operations.
+      </p>
     </footer>
-
-</body>
+  </body>
 </html>
