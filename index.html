@@ -115,12 +115,12 @@
         outline-offset: 3px;
       }
 
-      /* HERO COM IMAGEM DE FUNDO E CAMADA DE COR ESCURA PARA HARMONIA E LEITURA */
+      /* HERO COM EFEITO PARALLAX ATIVADO */
       .hero {
         position: relative;
-        /* Imagem de escritório limpo/organizado de fundo com URL direto do Unsplash */
-        background: linear-gradient(135deg, rgba(61, 52, 44, 0.88) 0%, rgba(82, 70, 60, 0.85) 100%), 
+        background: linear-gradient(135deg, rgba(61, 52, 44, 0.505) 0%, rgba(82, 70, 60, 0.505) 100%), 
                     url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        background-attachment: fixed; /* <-- EFEITO PARALLAX NO HERO */
         color: var(--white);
         padding: 6rem 5%;
         display: grid;
@@ -363,21 +363,41 @@
         color: var(--primary-light);
       }
 
-      .about {
-        background: var(--white);
+      /* SECÇÃO ABOUT COM EFEITO PARALLAX */
+      .about-parallax {
+        position: relative;
+        background: linear-gradient(135deg, rgba(61, 52, 44, 0.505) 0%, rgba(82, 70, 60, 0.505) 100%), 
+                    url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        background-attachment: fixed; /* <-- EFEITO PARALLAX NO ABOUT */
+        color: var(--white);
+        padding: 6rem 5%;
+        text-align: center;
       }
+      .about-parallax h2 {
+        color: var(--white);
+      }
+      .about-parallax .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .about-parallax .about-container p {
+        font-size: 1.15rem;
+        margin-bottom: 1.5rem;
+        color: #e9e3dc;
+      }
+
       .intl {
         background: var(--bg-card);
         color: var(--primary);
         border-top: 1px solid var(--border-color);
         border-bottom: 1px solid var(--border-color);
       }
-      .about-container {
+      .intl .about-container {
         max-width: 800px;
         margin: 0 auto;
         text-align: center;
       }
-      .about-container p {
+      .intl .about-container p {
         font-size: 1.1rem;
         margin-bottom: 1.5rem;
         color: var(--primary-light);
@@ -755,7 +775,7 @@
         </p>
       </section>
 
-      <section id="about" class="about">
+      <section id="about" class="about-parallax">
         <h2 data-en="About Kamila" data-pl="O Kamili">About Kamila</h2>
         <div class="about-container">
           <p data-en="I'm an HR professional with 6+ years of experience supporting employees, managing hiring, and building practical people processes in fast-moving business environments." data-pl="Jestem profesjonalistką HR z ponad 6-letnim doświadczeniem we wspieraniu pracowników, zarządzaniu rekrutacją i budowaniu praktycznych procesów w dynamicznych środowiskach biznesowych.">
