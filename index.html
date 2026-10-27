@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kamila Jazowska | Senior HR Manager & Remote HR Outsourcing</title>
+    <title>
+      Kamila Jazowska | HR Setup &amp; Employment Support for Startups in Poland
+    </title>
+    <meta
+      name="description"
+      content="Practical HR support for international startups hiring in Poland. HR setup, employment processes and employee onboarding. Book an intro call."
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -12,6 +18,7 @@
       :root {
         --primary: #1e293b;
         --accent: #0f766e;
+        --accent-light: #14b8a6;
         --bg-light: #f8fafc;
         --text-main: #334155;
         --white: #ffffff;
@@ -22,6 +29,10 @@
         padding: 0;
         font-family: "Inter", sans-serif;
       }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem;
+      }
       body {
         background-color: var(--bg-light);
         color: var(--text-main);
@@ -30,7 +41,7 @@
       header {
         background: var(--primary);
         color: var(--white);
-        padding: 2rem 5%;
+        padding: 1.25rem 5%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -43,53 +54,114 @@
         font-size: 1.2rem;
         letter-spacing: 0.5px;
       }
+      header nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
       header nav a {
         color: var(--white);
         text-decoration: none;
-        margin-left: 2rem;
         font-size: 0.95rem;
         font-weight: 500;
         transition: color 0.3s;
       }
       header nav a:hover {
-        color: var(--accent);
+        color: var(--accent-light);
+      }
+      header nav a.nav-cta {
+        background: var(--accent-light);
+        color: var(--primary);
+        padding: 0.5rem 1.1rem;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+      header nav a.nav-cta:hover {
+        background: var(--white);
+        color: var(--primary);
+      }
+      
+      /* Estilos do seletor de idioma */
+      .lang-switcher {
+        display: flex;
+        gap: 0.3rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.2rem;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .lang-btn {
+        background: transparent;
+        border: none;
+        color: var(--white);
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.2s, color 0.2s;
+      }
+      .lang-btn.active {
+        background: var(--accent-light);
+        color: var(--primary);
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 2px solid var(--accent-light);
+        outline-offset: 3px;
       }
 
       .hero {
         background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         color: var(--white);
-        padding: 6rem 5%;
+        padding: 5rem 5%;
         display: grid;
         grid-template-columns: 1.2fr 0.8fr;
         gap: 4rem;
         align-items: center;
       }
       .hero-content h1 {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         margin-bottom: 1rem;
         line-height: 1.2;
       }
-      .hero-content h1 span {
-        color: #14b8a6;
+      .hero-content .subtitle {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--accent-light);
+        margin-bottom: 1.25rem;
       }
-      .hero-content p {
-        font-size: 1.15rem;
+      .hero-content p.intro {
+        font-size: 1.05rem;
         margin-bottom: 2rem;
+        color: #cbd5e1;
+      }
+      .hero-content .scope-note {
+        font-size: 0.85rem;
         color: #94a3b8;
+        margin-top: 1.25rem;
+        margin-bottom: 0;
       }
       .btn {
         display: inline-block;
-        background-color: #14b8a6;
-        color: var(--white);
-        padding: 0.85rem 2rem;
+        background-color: var(--accent-light);
+        color: var(--primary);
+        padding: 0.9rem 2rem;
+        border: 0;
         border-radius: 6px;
         text-decoration: none;
         font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
         transition: background 0.3s;
         box-shadow: 0 4px 14px rgba(20, 184, 166, 0.4);
       }
       .btn:hover {
-        background-color: #0f766e;
+        background-color: #5eead4;
       }
 
       .hero-card {
@@ -101,13 +173,13 @@
       }
       .stats-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 1.5rem;
         text-align: center;
       }
       .stat-box h3 {
         font-size: 2.2rem;
-        color: #14b8a6;
+        color: var(--accent-light);
         margin-bottom: 0.3rem;
       }
       .stat-box p {
@@ -115,6 +187,31 @@
         color: #94a3b8;
         text-transform: uppercase;
         letter-spacing: 1px;
+      }
+
+      .audience {
+        background: var(--white);
+        padding: 3.5rem 5%;
+      }
+      .audience h2 {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      .audience-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1.5rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .audience-card {
+        background: var(--bg-light);
+        border-left: 4px solid var(--accent-light);
+        border-radius: 8px;
+        padding: 1.5rem;
+        font-weight: 500;
+        color: var(--primary);
       }
 
       section {
@@ -126,31 +223,131 @@
         margin-bottom: 3rem;
         color: var(--primary);
       }
+      .section-intro {
+        max-width: 760px;
+        margin: -2rem auto 3rem;
+        text-align: center;
+        color: #475569;
+      }
 
       .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
       }
       .service-card {
         background: var(--white);
         padding: 2.5rem;
         border-radius: 10px;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        border-top: 4px solid #14b8a6;
+        border-top: 4px solid var(--accent-light);
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+      .service-card .num {
+        color: var(--accent);
+        font-weight: 700;
+        letter-spacing: 1px;
       }
       .service-card h3 {
-        margin-bottom: 1rem;
         color: var(--primary);
         font-size: 1.3rem;
       }
+      .service-card h4 {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+        margin-bottom: 0.2rem;
+      }
       .service-card p {
         font-size: 0.95rem;
-        color: #64748b;
+        color: #475569;
+      }
+      .service-card .format {
+        margin-top: auto;
+        padding-top: 0.9rem;
+        border-top: 1px solid #e2e8f0;
+        font-weight: 600;
+        color: var(--primary);
+      }
+      .extra-box {
+        max-width: 1200px;
+        margin: 2rem auto 0;
+        background: var(--white);
+        border: 1px dashed #94a3b8;
+        border-radius: 10px;
+        padding: 1.5rem 2rem;
+      }
+      .extra-box h3 {
+        color: var(--primary);
+        font-size: 1.1rem;
+        margin-bottom: 0.4rem;
+      }
+      .extra-box p {
+        font-size: 0.95rem;
+        color: #475569;
+      }
+      .disclaimer {
+        max-width: 1200px;
+        margin: 1.5rem auto 0;
+        padding: 1rem 1.5rem;
+        background: #f0fdfa;
+        border: 1px solid #99f6e4;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        color: #134e4a;
+      }
+
+      .compare {
+        background: var(--white);
+      }
+      .table-wrap {
+        max-width: 1000px;
+        margin: 0 auto;
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 560px;
+      }
+      th,
+      td {
+        padding: 1rem 1.25rem;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 0.95rem;
+      }
+      thead th {
+        background: var(--primary);
+        color: var(--white);
+      }
+      tbody th {
+        color: var(--primary);
+        background: var(--bg-light);
+        width: 20%;
+      }
+      .compare-note {
+        max-width: 1000px;
+        margin: 1.5rem auto 0;
+        text-align: center;
+        color: #475569;
       }
 
       .about {
         background: var(--white);
+      }
+      .intl {
+        background: var(--primary);
+        color: var(--white);
+      }
+      .intl h2 {
+        color: var(--white);
       }
       .about-container {
         max-width: 800px;
@@ -162,33 +359,120 @@
         margin-bottom: 1.5rem;
         color: #475569;
       }
+      .intl .about-container p {
+        color: #cbd5e1;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .step {
+        background: var(--white);
+        border-radius: 10px;
+        padding: 1.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+      .step .num {
+        color: var(--accent-light);
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+      .step h3 {
+        color: var(--primary);
+        margin: 0.25rem 0 0.5rem;
+      }
+      .step p {
+        font-size: 0.95rem;
+        color: #475569;
+      }
+
+      .faq {
+        background: var(--white);
+      }
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      details {
+        border-bottom: 1px solid #e2e8f0;
+        padding: 1rem 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        color: var(--primary);
+      }
+      details p {
+        margin-top: 0.75rem;
+        color: #475569;
+      }
 
       .contact {
         background: var(--primary);
         color: var(--white);
         text-align: center;
       }
-      .contact p {
+      .contact h2 {
+        color: var(--white);
+      }
+      .contact > p {
         color: #94a3b8;
         margin-bottom: 2rem;
         font-size: 1.1rem;
+      }
+      .contact-form {
+        max-width: 640px;
+        margin: 0 auto 2.5rem;
+        text-align: left;
+        display: grid;
+        gap: 1rem;
+      }
+      .contact-form label {
+        display: grid;
+        gap: 0.35rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #e2e8f0;
+      }
+      .contact-form input,
+      .contact-form select,
+      .contact-form textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border-radius: 6px;
+        border: 1px solid #475569;
+        background: #0f172a;
+        color: var(--white);
+        font-size: 1rem;
+      }
+      .contact-form .btn {
+        justify-self: start;
+      }
+      .contact-details {
+        margin-top: 1.5rem;
+        font-size: 0.95rem;
+        color: #94a3b8;
+      }
+      .contact-details a.mail {
+        color: var(--accent-light);
+        font-weight: 600;
       }
       .linkedin-link {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
         margin-top: 1.25rem;
-        color: #14b8a6;
+        color: var(--accent-light);
         text-decoration: none;
         font-weight: 600;
         transition: color 0.3s;
       }
       .linkedin-link:hover {
         color: var(--white);
-      }
-      .linkedin-link:focus-visible {
-        outline: 2px solid #14b8a6;
-        outline-offset: 4px;
       }
       .linkedin-link svg {
         width: 1.25rem;
@@ -204,63 +488,80 @@
         font-size: 0.9rem;
       }
 
+      @media (max-width: 900px) {
+        header nav {
+          gap: 1rem;
+        }
+      }
       @media (max-width: 768px) {
         header {
           flex-direction: column;
-          gap: 1rem;
-          padding: 1.25rem 5%;
+          gap: 0.75rem;
+          padding: 1rem 5%;
         }
         header nav {
-          display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: 0.75rem 1.25rem;
+          gap: 0.6rem 1.1rem;
         }
         header nav a {
-          margin-left: 0;
+          padding: 0.35rem 0.25rem;
+        }
+        html {
+          scroll-padding-top: 8rem;
         }
         .hero {
           grid-template-columns: 1fr;
           gap: 2rem;
-          padding: 4rem 5%;
+          padding: 3.5rem 5%;
           text-align: center;
         }
         .hero-content h1 {
-          font-size: 2.2rem;
+          font-size: 2rem;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem 0.75rem;
         }
         section {
           padding: 3.5rem 5%;
         }
         section h2 {
-          font-size: 1.9rem;
+          font-size: 1.8rem;
           margin-bottom: 2rem;
+        }
+        .section-intro {
+          margin-top: -1rem;
         }
         .hero-card,
         .service-card {
           padding: 1.75rem;
         }
-        .contact .btn {
-          max-width: 100%;
-          overflow-wrap: anywhere;
+        .btn {
+          min-height: 48px;
+        }
+        .contact-form .btn {
+          justify-self: stretch;
+          text-align: center;
         }
       }
 
       @media (max-width: 480px) {
         .hero-content h1 {
-          font-size: 2rem;
+          font-size: 1.75rem;
         }
-        .hero-content p,
-        .contact p {
-          font-size: 1rem;
+        .hero-content .subtitle {
+          font-size: 1.1rem;
         }
-        .stats-grid {
-          gap: 1rem 0.75rem;
+        .hero-content .btn {
+          display: block;
+          text-align: center;
         }
         .stat-box h3 {
-          font-size: 1.8rem;
+          font-size: 1.6rem;
         }
         .stat-box p {
-          font-size: 0.7rem;
+          font-size: 0.65rem;
           letter-spacing: 0;
         }
         .services-grid {
@@ -269,7 +570,7 @@
         .service-card {
           padding: 1.5rem;
         }
-        .contact div {
+        .contact-details {
           overflow-wrap: anywhere;
         }
         footer {
@@ -281,127 +582,419 @@
   <body>
     <header>
       <div class="logo">KAMILA JAZOWSKA</div>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#expertise">Expertise</a>
-        <a href="#about">About</a>
-        <a href="#contact" style="color: #14b8a6">Let's Talk</a>
+      <nav aria-label="Main navigation">
+        <a href="#services" data-en="Services" data-pl="Usługi">Services</a>
+        <a href="#expertise" data-en="Expertise" data-pl="Ekspertyza">Expertise</a>
+        <a href="#about" data-en="About" data-pl="O mnie">About</a>
+        <a href="#contact" class="nav-cta" data-en="Let's Talk" data-pl="Porozmawiajmy">Let's Talk</a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" onclick="setLanguage('pl')">PL</button>
+        </div>
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="hero-content">
-        <h1>
-          Strategic HR Outsourcing & <span>People Operations</span> for Remote
-          Teams
-        </h1>
-        <p>
-          Scale your workforce effortlessly with 6+ years of senior HR
-          expertise. End-to-end management, compliance, and lifecycle operations
-          tailored for growing startups and remote companies.
-        </p>
-        <a href="#contact" class="btn">Book a Discovery Call</a>
-      </div>
-      <div class="hero-card">
-        <div class="stats-grid">
-          <div class="stat-box">
-            <h3>200+</h3>
-            <p>Employees Supported</p>
-          </div>
-          <div class="stat-box">
-            <h3>~200</h3>
-            <p>Hires Managed</p>
-          </div>
-          <div class="stat-box">
-            <h3>100+</h3>
-            <p>Locations Covered</p>
-          </div>
-          <div class="stat-box">
-            <h3>6+</h3>
-            <p>Years Experience</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <h2>Remote HR Outsourcing Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>End-to-End Recruitment</h3>
-          <p>
-            Full-cycle talent acquisition across multiple locations and borders
-            (Poland & EU), ensuring cultural fit and rapid onboarding.
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h1 data-en="Building Your Team in Poland? Start with the Right HR Foundations." data-pl="Budujesz zespół w Polsce? Zacznij od właściwych fundamentów HR.">Building Your Team in Poland? Start with the Right HR Foundations.</h1>
+          <p class="subtitle" data-en="Practical HR and employment support for international startups and companies entering the Polish market." data-pl="Praktyczne wsparcie HR i zatrudnienia dla międzynarodowych startupów i firm wchodzących na polski rynek.">
+            Practical HR and employment support for international startups and
+            companies entering the Polish market.
+          </p>
+          <p class="intro" data-en="Expanding to Poland or preparing to hire your first local employees? I help international startups and growing companies understand Polish employment practices, set up practical HR processes, and structure employee onboarding. From your first hire to daily HR management, I help you build a foundation on which your team in Poland can grow." data-pl="Ekspansja do Polski lub przygotowania do zatrudnienia pierwszych lokalnych pracowników? Pomagam międzynarodowym startupom i rozwijającym się firmom zrozumieć polskie realia zatrudnienia, wdrożyć praktyczne procesy HR oraz uporządkować onboarding pracowników. Od pierwszego zatrudnienia po codzienne zarządzanie HR – pomagam zbudować fundament, na którym Twój zespół w Polsce może rosnąć.">
+            Expanding to Poland or preparing to hire your first local employees?
+            I help international startups and growing companies understand
+            Polish employment practices, set up practical HR processes, and
+            structure employee onboarding. From your first hire to daily HR
+            management, I help you build a foundation on which your team in
+            Poland can grow.
+          </p>
+          <a href="#contact" class="btn" data-en="Book an Introductory Call" data-pl="Umów rozmowę wstępną">Book an Introductory Call</a>
+          <p class="scope-note" data-en="HR and people processes support. Legal, payroll, and accounting matters are handled in collaboration with trusted local specialists." data-pl="Wsparcie w procesach HR i pracowniczych. Kwestie prawne, płacowe i księgowe są realizowane we współpracy z zaufanymi lokalnymi specjalistami.">
+            HR and people processes support. Legal, payroll, and accounting
+            matters are handled in collaboration with trusted local specialists.
           </p>
         </div>
-        <div class="service-card">
-          <h3>Employee Lifecycle & Operations</h3>
-          <p>
-            Seamless management of onboarding, offboarding, internal tracking
-            via Google Sheets/HRnest, and day-to-day employee relations.
+        <div class="hero-card">
+          <div class="stats-grid">
+            <div class="stat-box">
+              <h3>200+</h3>
+              <p data-en="Employees Supported (in past roles)" data-pl="Wspartych pracowników (w poprz. rolach)">Employees Supported (in past roles)</p>
+            </div>
+            <div class="stat-box">
+              <h3>~200</h3>
+              <p data-en="Hires Managed (in past roles)" data-pl="Zarządzanych rekrutacji (w poprz. rolach)">Hires Managed (in past roles)</p>
+            </div>
+            <div class="stat-box">
+              <h3>6+</h3>
+              <p data-en="Years of HR Experience" data-pl="Lat doświadczenia w HR">Years of HR Experience</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="audience" aria-labelledby="audience-title">
+        <h2 id="audience-title" data-en="Who I Work With" data-pl="Z kim współpracuję">Who I Work With</h2>
+        <div class="audience-grid">
+          <div class="audience-card" data-en="Startups preparing to hire their first employees in Poland." data-pl="Startupy przygotowujące się do zatrudnienia pierwszych pracowników w Polsce.">
+            Startups preparing to hire their first employees in Poland.
+          </div>
+          <div class="audience-card" data-en="Foreign companies establishing or expanding Polish operations." data-pl="Zagraniczne firmy zakładające lub rozwijające działalność w Polsce.">
+            Foreign companies establishing or expanding Polish operations.
+          </div>
+          <div class="audience-card" data-en="Growing teams needing HR support who are not yet ready for a full-time HR manager." data-pl="Rozwijające się zespoły potrzebujące wsparcia HR, które nie są jeszcze gotowe na menedżera HR na pełny etat.">
+            Growing teams needing HR support who are not yet ready for a
+            full-time HR manager.
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <h2 data-en="Services" data-pl="Usługi">Services</h2>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="num">01</span>
+            <h3 data-en="Poland Hiring Readiness Audit" data-pl="Audyt gotowości do zatrudnienia w Polsce">Poland Hiring Readiness Audit</h3>
+            <div>
+              <h4 data-en="Who it's for" data-pl="Dla kogo">Who it's for</h4>
+              <p data-en="Companies considering hiring in Poland that want to know what to prepare first." data-pl="Firmy rozważające zatrudnienie w Polsce, które chciedzą wiedzieć, co przygotować w pierwszej kolejności.">
+                Companies considering hiring in Poland that want to know what to
+                prepare first.
+              </p>
+            </div>
+            <div>
+              <h4 data-en="What's included" data-pl="Co zyskujesz">What's included</h4>
+              <p data-en="Overview of local HR foundations, review of your hiring plans, and a prioritised action plan with a list of the specialists you will need." data-pl="Przegląd podstaw HR, analizę planów rekrutacyjnych oraz priorytetowy plan działania z listą potrzebnych specjalistów.">
+                Overview of local HR foundations, review of your hiring plans,
+                and a prioritised action plan with a list of the specialists you
+                will need.
+              </p>
+            </div>
+            <p class="format" data-en="Format: One-off project (1–2 weeks)" data-pl="Format: Projekt jednorazowy (1–2 tygodnie)">Format: One-off project (1–2 weeks)</p>
+          </article>
+          <article class="service-card">
+            <span class="num">02</span>
+            <h3 data-en="First Hires Setup" data-pl="Konfiguracja pierwszych zatrudnień">First Hires Setup</h3>
+            <div>
+              <h4 data-en="Who it's for" data-pl="Dla kogo">Who it's for</h4>
+              <p data-en="Startups about to employ their first people in Poland." data-pl="Startupy, które wkrótce zatrudnią pierwsze osoby w Polsce.">
+                Startups about to employ their first people in Poland.
+              </p>
+            </div>
+            <div>
+              <h4 data-en="What's included" data-pl="Co zyskujesz">What's included</h4>
+              <p data-en="Practical HR workflows, documentation, a 90-day onboarding procedure, and coordination with legal and payroll partners." data-pl="Praktyczne przepływy pracy HR, dokumentacja, procedura onboardingu na pierwsze 90 dni oraz koordynacja z partnerami prawnymi i płacowymi.">
+                Practical HR workflows, documentation, a 90-day onboarding
+                procedure, and coordination with legal and payroll partners.
+              </p>
+            </div>
+            <p class="format" data-en="Format: Project with defined scope" data-pl="Format: Projekt o określonym zakresie">Format: Project with defined scope</p>
+          </article>
+          <article class="service-card">
+            <span class="num">03</span>
+            <h3 data-en="Ongoing HR Support" data-pl="Bieżące wsparcie HR">Ongoing HR Support</h3>
+            <div>
+              <h4 data-en="Who it's for" data-pl="Dla kogo">Who it's for</h4>
+              <p data-en="Growing teams that need an HR partner without hiring a full-time HR manager." data-pl="Rozwijające się zespoły, które potrzebują partnera HR bez zatrudniania menedżera na pełny etat.">
+                Growing teams that need an HR partner without hiring a
+                full-time HR manager.
+              </p>
+            </div>
+            <div>
+              <h4 data-en="What's included" data-pl="Co zyskujesz">What's included</h4>
+              <p data-en="Day-to-day administration, employee lifecycle, continuous process improvement, and a single point of contact." data-pl="Codzienna administracja, cykl życia pracownika, ciągłe doskonalenie procesów i jeden punkt kontaktu.">
+                Day-to-day administration, employee lifecycle, continuous
+                process improvement, and a single point of contact.
+              </p>
+            </div>
+            <p class="format" data-en="Format: Monthly retainer" data-pl="Format: Miesięczna umowa abonamentowa">Format: Monthly retainer</p>
+          </article>
+        </div>
+        <div class="extra-box">
+          <h3 data-en="Optional Extra: Recruitment Support" data-pl="Opcjonalny dodatek: Wsparcie rekrutacyjne">Optional Extra: Recruitment Support</h3>
+          <p data-en="Need help finding candidates for your Polish team? Recruitment support is available as an add-on to the services above." data-pl="Potrzebujesz pomocy w znalezieniu kandydatów do polskiego zespołu? Wsparcie rekrutacyjne jest dostępne jako dodatek do powyższych usług.">
+            Need help finding candidates for your Polish team? Recruitment
+            support is available as an add-on to the services above.
           </p>
         </div>
-        <div class="service-card">
-          <h3>Employment Compliance & Legal</h3>
-          <p>
-            Drafting workplace rules, remuneration regulations, and aligning
-            internal procedures with EU pay requirements and whistleblower laws.
+        <p class="disclaimer">
+          <strong data-en="Please note:" data-pl="Uwaga:">Please note:</strong> <span data-en="my services do not constitute direct legal or tax advice. Legal, payroll, and accounting matters are handled in collaboration with trusted local specialists." data-pl="moje usługi nie stanowią bezpośredniej porady prawnej ani podatkowej. Kwestie prawne, płacowe i księgowe są realizowane we współpracy z zaufanymi lokalnymi specjalistami.">my services do not constitute direct
+          legal or tax advice. Legal, payroll, and accounting matters are
+          handled in collaboration with trusted local specialists.</span>
+        </p>
+      </section>
+
+      <section id="expertise" class="compare">
+        <h2 data-en="Do I need an HR Partner or an EOR?" data-pl="Czy potrzebuję partnera HR czy platformy EOR?">Do I need an HR Partner or an EOR?</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col" data-en="EOR / Payroll Platform" data-pl="Platforma EOR / Płacowa">EOR / Payroll Platform</th>
+                <th scope="col" data-en="HR Partner (Kamila)" data-pl="Partner HR (Kamila)">HR Partner (Kamila)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-en="Main role" data-pl="Główna rola">Main role</th>
+                <td data-en="Acts as the legal employer and runs payroll and statutory administration." data-pl="Działa jako prawny pracodawca oraz prowadzi płace i administrację ustawową.">
+                  Acts as the legal employer and runs payroll and statutory
+                  administration.
+                </td>
+                <td data-en="Builds and runs your people processes: onboarding, employee lifecycle, HR documentation." data-pl="Tworzy i prowadzi procesy pracownicze: onboarding, cykl życia pracownika, dokumentację HR.">
+                  Builds and runs your people processes: onboarding, employee
+                  lifecycle, HR documentation.
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" data-en="Key strength" data-pl="Główna zaleta">Key strength</th>
+                <td data-en="Fast, compliant hiring without setting up a local entity." data-pl="Szybkie, zgodne z przepisami zatrudnianie bez zakładania lokalnej spółki.">
+                  Fast, compliant hiring without setting up a local entity.
+                </td>
+                <td data-en="Hands-on, local HR knowledge and day-to-day support tailored to your team." data-pl="Praktyczna, lokalna wiedza HR i codzienne wsparcie dostosowane do Twojego zespołu.">
+                  Hands-on, local HR knowledge and day-to-day support tailored
+                  to your team.
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" data-en="Best suited for" data-pl="Najlepsze dla">Best suited for</th>
+                <td data-en="Companies that want to employ people in Poland without a Polish entity." data-pl="Firm, które chcą zatrudniać osoby w Polsce bez polskiego podmiotu.">
+                  Companies that want to employ people in Poland without a
+                  Polish entity.
+                </td>
+                <td data-en="Companies that need practical HR structure, whether they use an EOR or their own entity." data-pl="Firm, które potrzebują praktycznej struktury HR, niezależnie od tego, czy korzystają z EOR, czy własnego podmiotu.">
+                  Companies that need practical HR structure, whether they use
+                  an EOR or their own entity.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare-note" data-en="They are not competing options: an EOR can handle the legal employment and payroll while I take care of the HR processes around your people." data-pl="To nie są opcje wykluczające się: EOR może zająć się zatrudnieniem prawnym i płacami, podczas gdy ja dbam o procesy HR wokół Twoich pracowników.">
+          They are not competing options: an EOR can handle the legal
+          employment and payroll while I take care of the HR processes around
+          your people.
+        </p>
+      </section>
+
+      <section id="about" class="about">
+        <h2 data-en="About Kamila" data-pl="O Kamili">About Kamila</h2>
+        <div class="about-container">
+          <p data-en="I'm an HR professional with 6+ years of experience supporting employees, managing hiring, and building practical people processes in fast-moving business environments." data-pl="Jestem profesjonalistką HR z ponad 6-letnim doświadczeniem we wspieraniu pracowników, zarządzaniu rekrutacją i budowaniu praktycznych procesów w dynamicznych środowiskach biznesowych.">
+            I'm an HR professional with 6+ years of experience supporting
+            employees, managing hiring, and building practical people processes
+            in fast-moving business environments.
+          </p>
+          <p data-en="I'm a native Polish speaker and fluent in English. My working style is practical and direct: I focus on what your business needs to do next, explain it clearly, and help you put it into action, without unnecessary complexity." data-pl="Mówię po polsku (ojczysty) i płynnie po angielsku. Mój styl pracy jest praktyczny i bezpośredni: skupiam się na tym, co Twój biznes musi zrobić w następnej kolejności, wyjaśniam to jasno i pomagam wdrożyć bez zbędnej komplikacji.">
+            I'm a native Polish speaker and fluent in English. My working style
+            is practical and direct: I focus on what your business needs to do
+            next, explain it clearly, and help you put it into action, without
+            unnecessary complexity.
           </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="about" class="about">
-      <h2>Why Partner With Me?</h2>
-      <div class="about-container">
-        <p>
-          As a Senior HR Manager with a proven track record in high-growth
-          startup environments (such as SuperVista Poland), I bridge the gap
-          between human empathy and operational efficiency.
-        </p>
-        <p>
-          Fluent in English and a native Polish speaker, I specialize in remote
-          coordination, managing distributed teams, optimizing training paths,
-          and representing companies during public authority inspections[cite:
-          2]. Let me handle your People Operations so you can focus entirely on
-          scaling your core business.
-        </p>
-      </div>
-    </section>
+      <section class="intl">
+        <h2 data-en="International Experience, Local HR Knowledge" data-pl="Doświadczenie międzynarodowe, lokalna wiedza HR">International Experience, Local HR Knowledge</h2>
+        <div class="about-container">
+          <p data-en="My experience includes working in the Polish operations of SuperVista AG, a German international company. This gave me hands-on knowledge of how to scale local operations, coordinate people processes, and adapt business practices to the Polish market. I combine an international business perspective with hands-on HR expertise to help growing companies navigate the people and process side of operating in Poland." data-pl="Moje doświadczenie obejmuje pracę w polskich strukturach SuperVista AG, niemieckiej firmy o zasięgu międzynarodowym. Dało mi to praktyczną wiedzę na temat skalowania operacji lokalnych, koordynacji procesów pracowniczych oraz dostosowywania praktyk biznesowych do polskiego rynku. Łączę międzynarodową perspektywę biznesową z praktyczną ekspertyzą HR, aby pomagać rozwijającym się firmom w nawigowaniu po stronie ludzi i procesów podczas działalności w Polsce.">
+            My experience includes working in the Polish operations of
+            SuperVista AG, a German international company. This gave me
+            hands-on knowledge of how to scale local operations, coordinate
+            people processes, and adapt business practices to the Polish market.
+            I combine an international business perspective with hands-on HR
+            expertise to help growing companies navigate the people and process
+            side of operating in Poland.
+          </p>
+        </div>
+      </section>
 
-    <section id="contact" class="contact">
-      <h2>Ready to Scale Your Remote HR?</h2>
-      <p>
-        Let's discuss how flexible HR Outsourcing can transform your operational
-        efficiency.
-      </p>
-      <a href="mailto:kamila.jazowska@gmail.com" class="btn"
-        >kamila.jazowska@gmail.com</a
-      >
-      <div style="margin-top: 1.5rem; font-size: 0.95rem; color: #94a3b8">
-        Phone: +48 884 976 098 | Available for Remote / Telework Worldwide
-      </div>
-      <a
-        class="linkedin-link"
-        href="https://www.linkedin.com/in/kamila-jazowska-590b55252"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Visitar perfil de Kamila no LinkedIn"
-      >
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path
-            d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0h.01Z"
-          />
-        </svg>
-        <span>LinkedIn</span>
-      </a>
-    </section>
+      <section id="how-i-work">
+        <h2 data-en="How I Work" data-pl="Jak pracuję">How I Work</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <span class="num">01</span>
+            <h3 data-en="Discover" data-pl="Odkryj">Discover</h3>
+            <p data-en="We build a shared understanding of your situation." data-pl="Budujemy wspólne zrozumienie Twojej sytuacji.">We build a shared understanding of your situation.</p>
+          </div>
+          <div class="step">
+            <span class="num">02</span>
+            <h3 data-en="Assess" data-pl="Oceń">Assess</h3>
+            <p data-en="I identify gaps and priorities." data-pl="Identyfikuję luki i priorytety.">I identify gaps and priorities.</p>
+          </div>
+          <div class="step">
+            <span class="num">03</span>
+            <h3 data-en="Build" data-pl="Zbuduj">Build</h3>
+            <p data-en="A practical action plan with clear timelines." data-pl="Praktyczny plan działania z jasnymi terminami.">A practical action plan with clear timelines.</p>
+          </div>
+          <div class="step">
+            <span class="num">04</span>
+            <h3 data-en="Support" data-pl="Wspieraj">Support</h3>
+            <p data-en="Implementation and processes that actually work." data-pl="Wdrożenie i procesy, które naprawdę działają.">Implementation and processes that actually work.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="faq">
+        <h2 data-en="Frequently Asked Questions" data-pl="Często zadawane pytania">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details>
+            <summary data-en="Do you provide legal advice?" data-pl="Czy świadczysz usługi doradztwa prawnego?">Do you provide legal advice?</summary>
+            <p data-en="No. I provide HR and people-process support. Legal, tax, payroll, and accounting questions are handled together with trusted local specialists, and I coordinate with them for you." data-pl="Nie. Zapewniam wsparcie w zakresie HR i procesów pracowniczych. Kwestie prawne, podatkowe, płacowe i księgowe są obsługiwane wspólnie z zaufanymi lokalnymi specjalistami, a ja koordynuję współpracę z nimi w Twoim imieniu.">
+              No. I provide HR and people-process support. Legal, tax, payroll,
+              and accounting questions are handled together with trusted local
+              specialists, and I coordinate with them for you.
+            </p>
+          </details>
+          <details>
+            <summary data-en="Do I need a Polish entity?" data-pl="Czy potrzebuję polskiego podmiotu?">Do I need a Polish entity?</summary>
+            <p data-en="Not necessarily. Some companies hire through an EOR, others establish their own entity. In the introductory call we can outline the options, and your legal advisor can confirm the right structure." data-pl="Niekoniecznie. Niektóre firmy zatrudniają przez EOR, inne zakładają własną spółkę. Podczas rozmowy wstępnej możemy omówić opcje, a doradca prawny potwierdzi odpowiednią strukturę.">
+              Not necessarily. Some companies hire through an EOR, others
+              establish their own entity. In the introductory call we can
+              outline the options, and your legal advisor can confirm the right
+              structure.
+            </p>
+          </details>
+          <details>
+            <summary data-en="How quickly can we start?" data-pl="Jak szybko możemy zacząć?">How quickly can we start?</summary>
+            <p data-en="After the introductory call, we agree the scope and I can usually start within a few weeks, depending on current availability." data-pl="Po rozmowie wstępnej ustalamy zakres i zazwyczaj mogę zacząć w ciągu kilku tygodni, w zależności od bieżącej dostępności.">
+              After the introductory call, we agree the scope and I can usually
+              start within a few weeks, depending on current availability.
+            </p>
+          </details>
+          <details>
+            <summary data-en="Can you work alongside an EOR or payroll provider?" data-pl="Czy możesz współpracować z dostawcą EOR lub biurem płacowym?">Can you work alongside an EOR or payroll provider?</summary>
+            <p data-en="Yes. This is a common setup: the EOR or payroll provider handles employment and payroll, and I handle the HR processes around it." data-pl="Tak. To powszechny model: EOR lub dostawca płac zajmuje się zatrudnieniem i listą płac, a ja dbam o otaczające procesy HR.">
+              Yes. This is a common setup: the EOR or payroll provider handles
+              employment and payroll, and I handle the HR processes around it.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <h2 data-en="Planning to Hire in Poland?" data-pl="Planujesz zatrudniać w Polsce?">Planning to Hire in Poland?</h2>
+        <p data-en="Let's discuss your plans and identify the practical HR steps your business needs to take." data-pl="Porozmawiajmy o Twoich planach i określmy praktyczne kroki HR, które musi podjąć Twój biznes.">
+          Let's discuss your plans and identify the practical HR steps your
+          business needs to take.
+        </p>
+        <form class="contact-form" id="contact-form">
+          <label>
+            <span data-en="Your name" data-pl="Twoje imię">Your name</span>
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            <span data-en="Your email" data-pl="Twój e-mail">Your email</span>
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            <span data-en="What stage are you at?" data-pl="Na jakim etapie jesteś?">What stage are you at?</span>
+            <select name="stage" required>
+              <option value="" data-en="Select…" data-pl="Wybierz…">Select…</option>
+              <option data-en="Exploring Poland as a market" data-pl="Badam rynek w Polsce">Exploring Poland as a market</option>
+              <option data-en="Preparing to hire" data-pl="Przygotowuję się do rekrutacji">Preparing to hire</option>
+              <option data-en="Already hiring or have employees in Poland" data-pl="Już zatrudniam lub mam pracowników w Polsce">Already hiring or have employees in Poland</option>
+            </select>
+          </label>
+          <label>
+            <span data-en="Are you already hiring?" data-pl="Czy już rekrutujesz?">Are you already hiring?</span>
+            <select name="hiring" required>
+              <option value="" data-en="Select…" data-pl="Wybierz…">Select…</option>
+              <option data-en="Yes" data-pl="Tak">Yes</option>
+              <option data-en="Not yet, but soon" data-pl="Jeszcze nie, ale wkrótce">Not yet, but soon</option>
+              <option data-en="No" data-pl="Nie">No</option>
+            </select>
+          </label>
+          <label>
+            <span data-en="What support are you looking for?" data-pl="Jakiego wsparcia szukasz?">What support are you looking for?</span>
+            <textarea name="support" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn" data-en="Request an Introductory Call" data-pl="Poproś o rozmowę wstępną">Request an Introductory Call</button>
+        </form>
+        <div class="contact-details">
+          <a class="mail" href="mailto:kamila.jazowska@gmail.com"
+            >kamila.jazowska@gmail.com</a
+          >
+          <div>
+            <span data-en="Phone:" data-pl="Telefon:">Phone:</span> <a href="tel:+48884976098" style="color: inherit">+48 884 976 098</a>
+          </div>
+        </div>
+        <a
+          class="linkedin-link"
+          href="https://www.linkedin.com/in/kamila-jazowska-590b55252"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Kamila's LinkedIn profile"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path
+              d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0h.01Z"
+            />
+          </svg>
+          <span>LinkedIn</span>
+        </a>
+      </section>
+    </main>
 
     <footer>
-      <p>
-        &copy; 2026 Kamila Jazowska. All rights reserved. Senior HR Manager &
-        People Operations.
+      <p data-en="&copy; 2026 Kamila Jazowska. All rights reserved. HR Setup &amp; Employment Support for Companies in Poland." data-pl="&copy; 2026 Kamila Jazowska. Wszelkie prawa zastrzeżone. Konfiguracja HR i wsparcie zatrudnienia dla firm w Polsce.">
+        &copy; 2026 Kamila Jazowska. All rights reserved. HR Setup &amp;
+        Employment Support for Companies in Poland.
       </p>
     </footer>
+
+    <script>
+      // Lógica de mudança de idioma
+      function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        
+        // Atualizar botões visuais
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+        });
+
+        // Trocar textos com base nos atributos data-en / data-pl
+        document.querySelectorAll('[data-en]').forEach(el => {
+          if (lang === 'pl' && el.getAttribute('data-pl')) {
+            el.innerHTML = el.getAttribute('data-pl');
+          } else if (lang === 'en' && el.getAttribute('data-en')) {
+            el.innerHTML = el.getAttribute('data-en');
+          }
+        });
+
+        // Guardar preferência no navegador
+        localStorage.setItem('preferred_lang', lang);
+      }
+
+      // Carregar preferência guardada ao abrir a página
+      window.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('preferred_lang');
+        if (savedLang) {
+          setLanguage(savedLang);
+        }
+      });
+
+      // Formulário de contacto
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var f = new FormData(e.target);
+          var body = [
+            "Name: " + f.get("name"),
+            "Email: " + f.get("email"),
+            "Stage: " + f.get("stage"),
+            "Already hiring: " + f.get("hiring"),
+            "Support needed: " + f.get("support"),
+          ].join("\n");
+          window.location.href =
+            "mailto:kamila.jazowska@gmail.com?subject=" +
+            encodeURIComponent("Introductory call request") +
+            "&body=" +
+            encodeURIComponent(body);
+        });
+    </script>
   </body>
 </html>
