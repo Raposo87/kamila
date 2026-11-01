@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Kamila Jazowska | HR Setup &amp; Employment Support for Startups in Poland
+      HRmony | HR Setup &amp; Employment Support for Startups in Poland
     </title>
     <meta
       name="description"
@@ -45,7 +45,7 @@
         background: var(--bg-card);
         border-bottom: 1px solid var(--border-color);
         color: var(--primary-light);
-        padding: 1.25rem 5%;
+        padding: 1rem 5%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -54,10 +54,13 @@
         z-index: 1000;
       }
       header .logo {
-        font-weight: 700;
-        font-size: 1.2rem;
-        letter-spacing: 0.5px;
-        color: var(--accent);
+        display: flex;
+        align-items: center;
+      }
+      header .logo img {
+        height: 67px;
+        width: auto;
+        object-fit: contain;
       }
       header nav {
         display: flex;
@@ -115,11 +118,10 @@
         outline-offset: 3px;
       }
 
-      /* HERO COM EFEITO PARALLAX ATIVADO */
       .hero {
         position: relative;
-        background: linear-gradient(135deg, rgba(79, 107, 90, 0.404) 0%, rgba(58, 78, 84, 0.404) 100%), 
-                    url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        background: linear-gradient(135deg, rgba(79, 107, 90, 0.85) 0%, rgba(58, 78, 84, 0.85) 100%), 
+                    url('URL_DA_SUA_NOVA_FOTO_AQUI') center/cover no-repeat;
         background-attachment: fixed;
         color: var(--white);
         padding: 6rem 5%;
@@ -363,10 +365,9 @@
         color: var(--primary-light);
       }
 
-      /* SECÇÃO ABOUT COM EFEITO PARALLAX */
       .about-parallax {
         position: relative;
-        background: linear-gradient(135deg, rgba(79, 107, 90, 0.404) 0%, rgba(58, 78, 84, 0.404) 100%), 
+        background: linear-gradient(135deg, rgba(79, 107, 90, 0.75) 0%, rgba(58, 78, 84, 0.75) 100%), 
                     url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
         background-attachment: fixed;
         color: var(--white);
@@ -572,7 +573,9 @@
   </head>
   <body>
     <header>
-      <div class="logo">KAMILA JAZOWSKA</div>
+      <div class="logo">
+        <img src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1793561268/Kamila-removebg-preview_sca6r9.png" alt="HRmony - People & Business Advisory" />
+      </div>
       <nav aria-label="Main navigation">
         <a href="#services" data-en="Services" data-pl="Usługi">Services</a>
         <a href="#expertise" data-en="Expertise" data-pl="Ekspertyza">Expertise</a>
@@ -783,7 +786,7 @@
             employees, managing hiring, and building practical people processes
             in fast-moving business environments.
           </p>
-          <p data-en="I'm a native Polish speaker and fluent in English. My working style is practical and direct: I focus on what your business needs to do next, explain it clearly, and help you put it into action, without unnecessary complexity." data-pl="Mówię po polsku (ojczysty) i płynnie po angielsku. Mój styl pracy jest practicalny i bezpośredni: skupiam się na tym, co Twój biznes musi zrobić w następnej kolejności, wyjaśniam to jasno i pomagam wdrożyć bez zbędnej komplikacji.">
+          <p data-en="I'm a native Polish speaker and fluent in English. My working style is practical and direct: I focus on what your business needs to do next, explain it clearly, and help you put it into action, without unnecessary complexity." data-pl="Mówię po polsku (ojczysty) i płynnie po angielsku. Mój styl pracy jest praktyczny i bezpośredni: skupiam się na tym, co Twój biznes musi zrobić w następnej kolejności, wyjaśniam to jasno i pomagam wdrożyć bez zbędnej komplikacji.">
             I'm a native Polish speaker and fluent in English. My working style
             is practical and direct: I focus on what your business needs to do
             next, explain it clearly, and help you put it into action, without
@@ -914,8 +917,8 @@
     </main>
 
     <footer>
-      <p data-en="&copy; 2026 Kamila Jazowska. All rights reserved. HR Setup &amp; Employment Support for Companies in Poland." data-pl="&copy; 2026 Kamila Jazowska. Wszelkie prawa zastrzeżone. Konfiguracja HR i wsparcie zatrudnienia dla firm w Polsce.">
-        &copy; 2026 Kamila Jazowska. All rights reserved. HR Setup &amp;
+      <p data-en="&copy; 2026 HRmony. All rights reserved. HR Setup &amp; Employment Support for Companies in Poland." data-pl="&copy; 2026 HRmony. Wszelkie prawa zastrzeżone. Konfiguracja HR i wsparcie zatrudnienia dla firm w Polsce.">
+        &copy; 2026 HRmony. All rights reserved. HR Setup &amp;
         Employment Support for Companies in Poland.
       </p>
     </footer>
