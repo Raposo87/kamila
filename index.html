@@ -62,6 +62,15 @@
         width: auto;
         object-fit: contain;
       }
+
+      /* CONTAINER DIREITO PARA MOBILE (IDIOMA + HAMBURGUER) */
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      /* MENU NAVIGATION */
       header nav {
         display: flex;
         align-items: center;
@@ -86,6 +95,27 @@
       }
       header nav a.nav-cta:hover {
         background: var(--accent-hover);
+      }
+
+      /* HAMBURGER BUTTON */
+      .menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        z-index: 1001;
+      }
+      .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary-light);
+        border-radius: 3px;
+        transition: all 0.3s ease;
       }
 
       .lang-switcher {
@@ -120,8 +150,8 @@
 
       .hero {
         position: relative;
-        background: linear-gradient(135deg, rgba(79, 107, 90, 0.85) 0%, rgba(58, 78, 84, 0.85) 100%), 
-                    url('URL_DA_SUA_NOVA_FOTO_AQUI') center/cover no-repeat;
+        background: linear-gradient(135deg, rgba(79, 107, 90, 0.404) 0%, rgba(58, 78, 84, 0.404) 100%), 
+                    url('https://images.pexels.com/photos/7872581/pexels-photo-7872581.jpeg') center/cover no-repeat;
         background-attachment: fixed;
         color: var(--white);
         padding: 6rem 5%;
@@ -367,8 +397,8 @@
 
       .about-parallax {
         position: relative;
-        background: linear-gradient(135deg, rgba(79, 107, 90, 0.75) 0%, rgba(58, 78, 84, 0.75) 100%), 
-                    url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        background: linear-gradient(135deg, rgba(79, 107, 90, 0.404) 0%, rgba(58, 78, 84, 0.404) 100%), 
+                    url('https://res.cloudinary.com/dqn2v9mtu/image/upload/v1793564559/Gemini_Generated_Image_vm8j8avm8j8avm8j_s1q08i.jpg') center/cover no-repeat;
         background-attachment: fixed;
         color: var(--white);
         padding: 6rem 5%;
@@ -525,16 +555,36 @@
         font-size: 0.9rem;
       }
 
+      /* MEDIA QUERIES & MOBILE MENU STYLING */
       @media (max-width: 768px) {
-        header {
-          flex-direction: column;
-          gap: 0.75rem;
-          padding: 1rem 5%;
+        .menu-toggle {
+          display: flex;
         }
         header nav {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 0.6rem 1.1rem;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--bg-card);
+          flex-direction: column;
+          align-items: center;
+          padding: 1.5rem 0;
+          gap: 1.2rem;
+          border-bottom: 1px solid var(--border-color);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          max-height: 0;
+          overflow: hidden;
+          opacity: 0;
+          transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+        header nav.active {
+          max-height: 350px;
+          opacity: 1;
+        }
+        /* No modo mobile, movemos o seletor de idiomas para dentro do menu dropdown */
+        header nav .lang-switcher {
+          order: 4;
+          margin-top: 0.5rem;
         }
         .hero {
           grid-template-columns: 1fr;
@@ -576,16 +626,30 @@
       <div class="logo">
         <img src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1793561268/Kamila-removebg-preview_sca6r9.png" alt="HRmony - People & Business Advisory" />
       </div>
-      <nav aria-label="Main navigation">
-        <a href="#services" data-en="Services" data-pl="Usługi">Services</a>
-        <a href="#expertise" data-en="Expertise" data-pl="Ekspertyza">Expertise</a>
-        <a href="#about" data-en="About" data-pl="O mnie">About</a>
-        <a href="#contact" class="nav-cta" data-en="Let's Talk" data-pl="Porozmawiajmy">Let's Talk</a>
+      
+      <nav aria-label="Main navigation" id="nav-menu">
+        <a href="#services" data-en="Services" data-pl="Usługi" onclick="closeMenu()">Services</a>
+        <a href="#expertise" data-en="Expertise" data-pl="Ekspertyza" onclick="closeMenu()">Expertise</a>
+        <a href="#about" data-en="About" data-pl="O mnie" onclick="closeMenu()">About</a>
+        <a href="#contact" class="nav-cta" data-en="Let's Talk" data-pl="Porozmawiajmy" onclick="closeMenu()">Let's Talk</a>
         <div class="lang-switcher">
           <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
           <button class="lang-btn" onclick="setLanguage('pl')">PL</button>
         </div>
       </nav>
+
+      <!-- Bloco direito agrupando o seletor de idioma (desktop) e o menu hambúrguer (mobile) -->
+      <div class="header-right">
+        <div class="lang-switcher d-none-mobile">
+          <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" onclick="setLanguage('pl')">PL</button>
+        </div>
+        <button class="menu-toggle" aria-label="Abrir menu" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
     <main>
@@ -924,6 +988,16 @@
     </footer>
 
     <script>
+      function toggleMenu() {
+        const nav = document.getElementById('nav-menu');
+        nav.classList.toggle('active');
+      }
+
+      function closeMenu() {
+        const nav = document.getElementById('nav-menu');
+        nav.classList.remove('active');
+      }
+
       function setLanguage(lang) {
         document.documentElement.lang = lang;
         
