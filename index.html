@@ -62,6 +62,16 @@
         width: auto;
         object-fit: contain;
       }
+      
+      /* Logo Desktop */
+      .logo-desktop {
+        display: block;
+      }
+      
+      /* Logo Mobile */
+      .logo-mobile {
+        display: none;
+      }
 
       /* CONTAINER DIREITO PARA MOBILE (IDIOMA + HAMBURGUER) */
       .header-right {
@@ -364,12 +374,11 @@
       .table-wrap {
         max-width: 1000px;
         margin: 0 auto;
-        overflow-x: auto;
+        overflow-x: hidden;
       }
       table {
         width: 100%;
         border-collapse: collapse;
-        min-width: 560px;
       }
       th,
       td {
@@ -557,6 +566,16 @@
 
       /* MEDIA QUERIES & MOBILE MENU STYLING */
       @media (max-width: 768px) {
+        .logo-desktop {
+          display: none;
+        }
+        .logo-mobile {
+          display: block;
+        }
+        header .logo img.logo-mobile {
+          height: 1.9rem !important;
+          width: auto;
+        }
         .menu-toggle {
           display: flex;
         }
@@ -601,6 +620,12 @@
           font-size: 1.8rem;
           margin-bottom: 2rem;
         }
+        table {
+          font-size: 0.85rem;
+        }
+        th, td {
+          padding: 0.75rem 0.5rem;
+        }
       }
 
       @media (max-width: 480px) {
@@ -619,7 +644,8 @@
   <body>
     <header>
       <div class="logo">
-        <img src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1794648241/Kamila_ywzekw.png" alt="HRmony - People & Business Advisory" />
+        <img class="logo-desktop" src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1794648241/Kamila_ywzekw.png" alt="HRmony - People & Business Advisory" />
+        <img class="logo-mobile" src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1794648241/Kamila_ywzekw.png" alt="HRmony" />
       </div>
       
       <nav aria-label="Main navigation" id="nav-menu">
