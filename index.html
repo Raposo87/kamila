@@ -581,11 +581,6 @@
           max-height: 350px;
           opacity: 1;
         }
-        /* No modo mobile, movemos o seletor de idiomas para dentro do menu dropdown */
-        header nav .lang-switcher {
-          order: 4;
-          margin-top: 0.5rem;
-        }
         .hero {
           grid-template-columns: 1fr;
           gap: 2rem;
@@ -624,7 +619,7 @@
   <body>
     <header>
       <div class="logo">
-        <img src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1793561268/Kamila-removebg-preview_sca6r9.png" alt="HRmony - People & Business Advisory" />
+        <img src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1794648241/Kamila_ywzekw.png" alt="HRmony - People & Business Advisory" />
       </div>
       
       <nav aria-label="Main navigation" id="nav-menu">
@@ -632,10 +627,6 @@
         <a href="#expertise" data-en="Expertise" data-pl="Ekspertyza" onclick="closeMenu()">Expertise</a>
         <a href="#about" data-en="About" data-pl="O mnie" onclick="closeMenu()">About</a>
         <a href="#contact" class="nav-cta" data-en="Let's Talk" data-pl="Porozmawiajmy" onclick="closeMenu()">Let's Talk</a>
-        <div class="lang-switcher">
-          <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
-          <button class="lang-btn" onclick="setLanguage('pl')">PL</button>
-        </div>
       </nav>
 
       <!-- Bloco direito agrupando o seletor de idioma (desktop) e o menu hambúrguer (mobile) -->
