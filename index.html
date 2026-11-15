@@ -162,7 +162,8 @@
         position: relative;
         background: linear-gradient(135deg, rgba(79, 107, 90, 0.404) 0%, rgba(58, 78, 84, 0.404) 100%), 
                     url('https://images.pexels.com/photos/7872581/pexels-photo-7872581.jpeg') center/cover no-repeat;
-        background-attachment: scroll;
+        background-attachment: fixed;
+        background-size: cover;
         color: var(--white);
         padding: 6rem 5%;
         display: grid;
@@ -408,7 +409,8 @@
         position: relative;
         background: linear-gradient(135deg, rgba(79, 107, 90, 0.404) 0%, rgba(58, 78, 84, 0.404) 100%), 
                     url('https://res.cloudinary.com/dqn2v9mtu/image/upload/v1793564559/Gemini_Generated_Image_vm8j8avm8j8avm8j_s1q08i.jpg') center/cover no-repeat;
-        background-attachment: scroll;
+        background-attachment: fixed;
+        background-size: cover;
         color: var(--white);
         padding: 6rem 5%;
         text-align: center;
@@ -1084,20 +1086,34 @@
         }
       });
 
-      // Parallax effect for all devices including iPhone
+      // Parallax effect for mobile devices (desktop uses CSS fixed attachment)
       function applyParallax() {
+        // Only apply parallax on mobile (max-width: 768px)
+        const isMobile = window.innerWidth <= 768;
+        
+        if (!isMobile) {
+          return; // Desktop uses CSS background-attachment: fixed
+        }
+
         const parallaxElements = document.querySelectorAll('.hero, .about-parallax');
         
-        window.addEventListener('scroll', () => {
+        const updateParallax = () => {
           parallaxElements.forEach(el => {
             const scrollPosition = window.pageYOffset;
             const elementOffset = el.offsetTop;
-            const distance = scrollPosition - elementOffset;
-            const offset = distance * 0.5; // Adjust multiplier for parallax speed
+            const elementHeight = el.clientHeight;
+            const windowHeight = window.innerHeight;
             
-            el.style.backgroundPosition = `center ${offset}px`;
+            // Calculate if element is in viewport
+            if (scrollPosition + windowHeight > elementOffset && scrollPosition < elementOffset + elementHeight) {
+              // Calculate parallax offset for mobile
+              const yPos = (scrollPosition - elementOffset) * 0.4;
+              el.style.backgroundPosition = `center calc(50% + ${yPos}px)`;
+            }
           });
-        });
+        };
+
+        window.addEventListener('scroll', updateParallax, { passive: true });
       }
 
       // Initialize parallax on page load
